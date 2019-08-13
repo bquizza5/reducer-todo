@@ -5,20 +5,23 @@ import AddToDo from './addToDoForm'
 const List = () => {
     const [ state, dispatch ] = useReducer(reducer, initialState)
 
-    console.log(state)
 
 
 
 
 
     return (
-        <div>
+        <>
+            <AddToDo state={state} dispatch={dispatch} />
+            <div className='tasks'>
+            <h1>Tasks:</h1>
             {state.map(item => {
-                return(<h1 className={item.completed ? 'completed' : ''} onClick={() => dispatch({type: 'completed', payload: item.id})}>{item.item}</h1>)
+                return(<h2 className={item.completed ? 'completed' : ''} onClick={() => dispatch({type: 'completed', payload: item.id})}>- {item.item}</h2>)
             })}
 
-        <AddToDo state={state} dispatch={dispatch} />
-        </div>
+        
+            </div>
+        </>
     )
 }
 

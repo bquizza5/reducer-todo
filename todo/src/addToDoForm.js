@@ -7,25 +7,26 @@ const AddToDo = (props) => {
 
     const changeHandler = (event) => {
         setNewToDo(event.target.value)
-        console.log(event.target.value)
+
 
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
         props.dispatch({type: 'add', payload: newToDo})
+        setNewToDo('')
 
     }
 
     return (
-        <>
+        <div className='addATask'>
         <form onSubmit={submitHandler} >
-        <h3>add ToDo</h3>
-        <input onChange={(event) => changeHandler(event)} value={newToDo} />
-        <button>Create</button>
+        <input placeHolder='type task here' type='text' onChange={(event) => changeHandler(event)} value={newToDo} />
+        <button type='submit'>Create Task</button>
+        <button type='button' onClick={() => props.dispatch({type: 'update', payload: newToDo})}>Remove Completed Tasks</button>
         </form>
-        <button onClick={() => props.dispatch({type: 'update', payload: newToDo})}>update</button>
-        </>
+        
+        </div>
     ) 
 } 
 export default AddToDo;

@@ -18,10 +18,9 @@ export const reducer = (state, action) => {
             }
         }))
     case 'update':
-        
 
-        
-        return( state.filter(item => !item.completed )
+        return( state.filter(item => !item.completed ))
+
             // state.map((item) => {
             //     if (item.completed) {
             //         // console.log(item)
@@ -31,7 +30,7 @@ export const reducer = (state, action) => {
             //     }
             // })
             
-            )
+            
 
     
     default:

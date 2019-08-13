@@ -1,7 +1,18 @@
 .App {
+  
+}
+
+.addATask {
+  width: 70%;
+  margin: 30px auto;
   text-align: center;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+.tasks {
+  width: 300px;
+  margin: auto;
 }
